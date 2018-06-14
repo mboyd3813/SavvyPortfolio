@@ -1,0 +1,23 @@
+{
+  "name": "MarcusBoyd",
+  "version": "1.0.0",
+  "description": "Hello World, my name is Marcus Boyd.\r I was born and raise in St. Louis Mo\r I have always had a passion for computers, so I thought it would be fun to make a career using computers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mboyd3813/SavvyPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mboyd3813/SavvyPortfolio/issues"
+  },
+  "homepage": "https://github.com/mboyd3813/SavvyPortfolio#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}
