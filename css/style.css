@@ -70,6 +70,10 @@ background-color: hotpink;
     margin: auto;
 }
 
+#Classy {
+    font-family: 'Eater', cursive;
+    background-color: #474B9C;
+
 h1 {
     color: red;
 }
@@ -83,4 +87,6 @@ p {
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
+}
+
 }
