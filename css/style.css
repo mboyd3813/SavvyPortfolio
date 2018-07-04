@@ -1,33 +1,81 @@
 body { 
-    margin: 0;
+    display: grid;
+    grid-template-rows: min-content min-content auto min-content;
+    grid-template-areas:
+    "navigation"
+    "header"
+    "content"
+    "footer";
+    min-height: 100vh;
 }
 
 img {
     width: 100%;
     max-width: 500%;
 }
+h1 {
+    font-family: 'IM Fell DW Pica', serif;
+    font-family: 'Marck Script', serif;   
+    position: sticky;
+}
+
+.fa-facebook-f {
+    color: blue;
+    font-size: 32px;
+}
+
+.fa-github {
+    font-size: 32px;
+}
 
 #navigation {
-    position: fixed;
-    width: 100vw;
-    background-color: yellow;
-}
+    top: 0;
+    left: 0;
+    height: auto;
+    position: sticky;
+    top: 0;
 
-#navigation > ul.container { 
+  }
+
+  #navigation > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin: 0;
+    padding: 5px;
+    list-style: none; 
+ }
+ #navigation > ul > li { 
+     margin-right: 0 10px 0 0; 
+ }
+ #navigation li {
+     position: sticky;
+ }
+ #navigation li ul {
+     background-color: hotpink;
+     display: none;
+     position: absolute;
+     top: 18px;
+     right: 0px;
+ }
+  #navigation a:hover + ul,
+  #navigation a + ul:hover {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  #navigation > ul.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#Header {
+    margin: 10px; 
     padding: 10px; 
-    list-style: none;
 }
-
-#navigation li { margin-right: 10px;
-    display: inline;
-}
-
-#navigation .container{
-    margin: auto;
-}
-
-#header {margin: 10px; padding: 10px; background-color: black;}
 
 #Content p + ul{
 background-color: hotpink;
@@ -50,43 +98,69 @@ background-color: hotpink;
     background-color: sandybrown;
 }
 #Content > li {margin: 10px; padding: 40px;}
+
 #Footer {
-    margin: 10px; 
-    padding: 10px; 
     background-color: grey;
+    position: sticky;
+    bottom: 0;
 }
-#Footer > ul { 
-    margin: 0;
-    padding: 10px; 
-    list-style: none;
-}
+#Footer > ul 
 
 #Footer > ul > li {
-    margin-right: 10px;
-    display: inline;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    display: inline
 }
 
 #Footer .container{
-    margin: auto;
+    margin: fixed;
 }
 
-#Classy {
+#Footer a {
+    text-decoration: none;
+}
+
+#Classy p {
     font-family: 'Eater', cursive;
     background-color: #474B9C;
-
-h1 {
-    color: red;
 }
+
 h2 {
-    font-size: 50px
+    font-size: 10px;
 }
 p {
-    background-color: beige
+    background-color: beige;
 }
 .container {
-    width: 100%;
     max-width: 760px;
     margin: 0 auto;
 }
 
+.dropdown {
+    background-color: yellow;
 }
+
+li:hover {
+    color: white;
+}
+
+@media (min-width: 612px) {
+   body {
+       grid-template-columns: 150px auto;
+       grid-template-rows: min-content auto min-content;
+       grid-template-areas:
+       "navigation header"
+       "navigation content"
+       "navigation footer";
+   }
+
+   #navigation {
+       grid-area: navigation;
+   }
+
+   #navigation > ul {
+       flex-direction: column;
+       height: 50vh;
+   }
