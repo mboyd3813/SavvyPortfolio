@@ -1,9 +1,10 @@
-export default `
+export default function Footer(state){
+    return `
 <div id="Footer">
             <div class="container">
                 <b>Contact info</b>
                 <ul>
-                    <li>
+                    <l i>
                         <i class="fas fa-at"></i>
                         <a href="https://mail.google.com">Mboyd3813@gmail.com</a>
                     </li>
@@ -18,4 +19,5 @@ export default `
                     </li>
                 </ul>
             </div>
-            `;
+`;
+}

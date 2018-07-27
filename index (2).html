@@ -1,0 +1,71 @@
+<?php header("Content-type:text/html; charset=utf-8"); ?>
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+        <!-- Meta information -->
+        <title>Demo Day RPG</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+        <link type="text/css" rel="stylesheet" href="css/custom-theme/jquery-ui-1.8.18.custom.css" />
+
+        <!-- jQuery -->
+        <script src="js/jquery-1.5.2.min.js"></script>
+        <script src="js/jquery-ui-1.8.11.custom.min.js"></script>
+
+        <!-- Game Scripts -->
+        <script src="js/globals.js"></script>
+        <script src="js/utility.js"></script>
+        <script src="js/astar.js"></script>
+        <script src="js/fov.js"></script>
+        <script src="js/gui.js"></script>
+        <script src="js/sprites.js"></script>
+        <script src="js/objects.js"></script>
+        <script src="js/actors.js"></script>
+        <script src="js/npc.js"></script>
+        <script src="js/enemy.js"></script>
+        <script src="js/boss.js"></script>
+        <script src="js/items.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/quest.js"></script>
+        <script src="js/world.js"></script>
+        <script src="js/game.js"></script>        
+
+    </head>
+    <body onload="init()">
+
+        <table id="wrapper" width="100%" height="100%">
+            <tr>
+                <td align="center" valign="middle">
+
+                    <div id="title-screen">
+                        <div id="logo"></div>
+                        <div id="menu">
+
+                            <a id="b-continue" class="button-disabled" href="javascript:">Continue Game</a>
+                            <a id="b-newgame" class="button" href="javascript:">New Game</a>
+
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+            function init(){
+                if (localStorage.getItem('game:progress') != null){
+                    $('#b-continue').removeClass('button-disabled').addClass('button').click(function(){
+                        continueGame();
+                    });
+                }
+                $('#b-newgame').click(function(){
+                    newGame();
+                });
+            }
+        </script>
+
+    </body>
+</html>

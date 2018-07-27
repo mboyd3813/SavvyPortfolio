@@ -3,36 +3,24 @@ import Navigation from './Components/Navigation';
 import Header from './Components/Header';
 import Content from './Components/Content';
 import Footer from './Components/Footer';
-
-var Home = {
-    'title': 'Marcus Boyd Projects'
-};
-
-var Blog = {
-    'title': 'Welcome to my Blog'
-}
-
-var Contact = {
-    'title': 'Contact Me'
-}
-
-var Projects = {
-    'title': 'My Projects'
-}
+import * as State from './store';
+import axios from 'axios';
+import Navigo from 'Navigo';
+import { capitalize } from 'lodash';
 
 var root = document.querySelector('#root');
+var router = new Navigo(location.origin);
 
-var title = 'My New Title'
+State.posts = [];
 
 function render(state){
     var greeting;
     var input;
-    var links;
 
 root.innerHTML = `
-    ${Navigation}
+    ${Navigation(state)}
     ${Header(state)}
-    ${Content}
+    ${Content(state, State.post)}
     ${Footer}
     `;
 
@@ -48,17 +36,30 @@ root.innerHTML = `
         </div>
     `
     );
+}
 
-    links = document.querySelectorAll('navigation a')
+function handleRoute(params){
+    var page = capitalize(params.page);
 
-    links[0].addEventListener(
-        'click',
-        (event) => {
-            event.preventDefault();
+    console.log(params);
+    console.log(page);
 
-            console.log('first link clicked');
-        }
-    );
-}   
+    render(State[page]);
 
-render(Home)
+}
+router.updatePageLinks();
+
+router
+    .on('/:page', handleRoute({ 'page': 'home' }))
+    .resolve();
+
+
+axios('https://jsonplaceholder.typicoe.com/posts').then((response) => {
+    var params = router.lastRouteResolved().params;
+
+    State.post = response.data;
+
+    if(params){
+        handleRoute(params);
+    }
+});

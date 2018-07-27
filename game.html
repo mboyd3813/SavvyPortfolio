@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+
+        <!-- Meta information -->
+        <title>r2 Canvas RPG</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="css/styles.css" />
+        <link type="text/css" rel="stylesheet" href="css/custom-theme/jquery-ui-1.8.18.custom.css" />
+
+        <!-- jQuery -->
+        <script src="js/jquery-1.5.2.min.js"></script>
+        <script src="js/jquery-ui-1.8.11.custom.min.js"></script>
+
+        <!-- Game Scripts -->
+        <script src="js/globals.js"></script>
+        <script src="js/utility.js"></script>
+        <script src="js/astar.js"></script>
+        <script src="js/fov.js"></script>
+        <script src="js/gui.js"></script>
+        <script src="js/sprites.js"></script>
+        <script src="js/objects.js"></script>
+        <script src="js/actors.js"></script>
+        <script src="js/npc.js"></script>
+        <script src="js/enemy.js"></script>        
+        <script src="js/boss.js"></script>
+        <script src="js/items.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/quest.js"></script>
+        <script src="js/world.js"></script>
+        <script src="js/game.js"></script>
+
+    </head>
+    <body onload="initialize()">
+
+        <div id="item-hint">
+            <div class="content">
+                <div class="title"></div>
+                <ul class="effects"></ul>
+            </div>
+            <div class="arrow"></div>
+        </div>
+
+        <table id="wrapper" width="100%" height="100%">
+            <tr>
+                <td align="center" valign="middle">
+
+                    <div id="game-wrap">
+                        <div id="top-panel">
+                            <div class="interface">
+                                <div id="quest-info">
+                                    Objective: <span class="summary"></span>
+                                </div>
+                                <div id="mp-info" class="help">
+                                    <div class="label">MP</div>
+                                    <div class="bar"><div class="value"></div></div>
+                                </div>
+                                <div id="hp-info" class="help">
+                                    <div class="label">HP</div>
+                                    <div class="bar"><div class="value"></div></div>
+                                </div>
+                                <div id="skills-info">
+                                    <div class="attack" title="Attack" class="help">5</div>
+                                    <div class="armor" title="Armor" class="help">0</div>
+                                    <div class="gold" title="Gold" class="help">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="game-block">
+                            <div class="loading"><h1>Loading assets...</h1></div>
+                            <canvas id="game"></canvas>
+                        </div>
+                        <div id="bottom-panel">
+                            <div class="interface">
+                                <ul id="inventory">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+					
+					<div id="src">
+						Made by <a href="mailto:dev@inlinecms.com">Vladimir Obukhov</a> | 
+						<a class="download" href="game.zip">Download full source code</a>
+					</div>
+
+                </td>
+            </tr>
+        </table>				
+
+        <div id="dialog-modal-actor" class="dialog">
+            <div class="wrapper">
+                <div class="talk_arrow"></div>
+                <div class="portrait">
+                    <div class="avatar"></div>
+                </div>
+                <div class="content"></div>
+            </div>
+        </div>
+
+        <div id="dialog-modal-gameover" class="dialog" title="Game Over">
+            <div class="wrapper">
+                <div class="content">
+                    What next?
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog-modal-message" class="dialog">
+            <div class="wrapper">
+                <div class="content">                    
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

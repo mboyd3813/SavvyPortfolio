@@ -1,10 +1,32 @@
-export default `
-<div id="navigation">
-<ul>
-    <li>
-        <a href="/blog">blog</a>
-    </li>
-    <li>
+import { lowerCase } from 'lodash';
+
+function reduceLinkToHTML(links, link){
+    var href = '/';
+
+        if(link !== 'Home'){
+            href += lowercase(link)
+        }
+
+        return `
+            ${links}
+            <li>
+            <a href="/${href}" data-navigo>${link}</a>
+            </li>
+        `;
+}
+
+function buildLinks(links){
+    return links.reduce(reduceLinkToHTML, '');
+}
+
+ 
+export default function Navigation(state){
+   return `
+        <div id="navigation">
+            <ul class="container">
+                ${buildLinks(state.link)}
+            </ul>
+
         <a href="/projects/">projects</a>
          <ul>
             <li>
@@ -17,7 +39,7 @@ export default `
             </li>
         </ul>
     </li>
-</ul>
+    </ul>
 </div>
 `;
-
+}

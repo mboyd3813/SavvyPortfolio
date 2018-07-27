@@ -1,0 +1,347 @@
+/* ========================================================================== */
+/* === Global =============================================================== */
+/* ========================================================================== */
+
+html, body{
+    height:100%;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background:url("../gfx/gui/bg_page.png");
+    color:#FFF;
+    font-size: 9pt;
+    margin: 0; padding: 0;
+}
+
+/* ========================================================================== */
+/* === Title Screen ========================================================= */
+/* ========================================================================== */
+
+#title-screen #logo{
+    display:block;
+    margin:0 auto;
+    width:513px;
+    height:104px;
+    background:url("../gfx/logo.png");
+}
+
+#title-screen #menu { margin: 30px 0; }
+
+#title-screen #menu .button,
+#title-screen #menu .button-disabled{
+    display:block;
+    margin:0 auto;
+    width:289px;
+    height:61px;
+    line-height:55px;
+    background-image: url("../gfx/button.png");
+    background-position-y: -61px; 
+    text-align: center;
+    text-decoration: none;
+    color:#FF0;
+    text-shadow: 0 2px 2px #000;
+    font-size:14pt;
+}
+
+#title-screen #menu .button-disabled{    
+    color:#CAC6B9;
+    background-position-y: 0px; 
+    cursor: no-drop;
+}
+
+#title-screen #menu .button:hover{
+    color:#FFF;
+    background-position-y: -122px; 
+}
+
+#title-screen #menu .button:active{
+    background-position-y: -183px; 
+}
+
+/* ========================================================================== */
+/* === Game Screen ========================================================== */
+/* ========================================================================== */
+
+.loading{
+    width:800px;
+    height:480px;
+    line-height:480px;
+    background:#333;
+    text-shadow:0 0 20px #000;
+    margin-top:-7px;
+}
+
+.interface{ 
+    display:none; 
+    font-size: 9pt;
+}
+
+#container {
+    width:100%;
+    height:100%;
+    line-height: 100%;    
+}
+
+#game-wrap{
+    display: block;
+    overflow: hidden;
+    box-shadow:0 0 30px #000;
+    width:826px;
+    height:582px;
+    background:url("../gfx/gui/frame.png") no-repeat;
+    margin-top:-44px;
+}
+
+/* ========================================================================== */
+/* === GUI Panels =========================================================== */
+/* ========================================================================== */
+
+#top-panel {
+    height:15px; 
+    width:800px;
+    height:22px;
+    overflow: hidden;
+    text-shadow: 1px 1px 3px #000;    
+    margin-top:13px;    
+}
+
+#top-panel #quest-info{ float:left; display: none; line-height: 22px; margin-left:5px; }
+#top-panel #quest-info .summary{ color:#74c920; }
+
+#top-panel #skills-info{
+    float:right;    
+    height:22px;
+    line-height:22px;
+    margin-right:10px;
+}
+
+#top-panel #skills-info div{
+    float:left;
+    height:16px;
+    line-height:16px;
+    width:auto;
+    padding-left:20px;
+    margin-top:3px;
+    margin-right:10px;
+    cursor: help;
+}
+
+#top-panel #skills-info .attack{ background:url("../gfx/sprites/icons.png") no-repeat left 0px; }
+#top-panel #skills-info .armor{ background:url("../gfx/sprites/icons.png") no-repeat left -16px; }
+#top-panel #skills-info .gold{ background:url("../gfx/sprites/icons.png") no-repeat left -32px; }
+
+#top-panel #hp-info,
+#top-panel #mp-info{
+    float:right;
+    height:22px;
+    line-height:22px;
+    margin-right:5px;
+}
+
+#top-panel #hp-info .label, 
+#top-panel #mp-info .label{ 
+    float:left;
+    margin-right:6px;
+}
+
+#top-panel #hp-info .bar,
+#top-panel #mp-info .bar{
+    float:right;
+    width:100px;
+    height:10px;
+    border:solid 1px #666;
+    background:url("../gfx/gui/hp_bg.png") repeat-x;
+    margin-top:5px;
+    cursor: help;
+}
+
+#top-panel #hp-info .bar .value,
+#top-panel #mp-info .bar .value{
+    height:100%;
+    float:left;
+}
+
+#top-panel #hp-info .bar .value{
+    background:url("../gfx/gui/hp.png") repeat-x;
+}
+
+#top-panel #mp-info .bar .value{
+    background:url("../gfx/gui/mp.png") repeat-x;
+}
+
+#game-block{
+    width:800px;
+    height: 480px;
+    margin:auto;
+    margin-top: 9px;
+}
+
+#bottom-panel {
+    height:15px; 
+    width:800px;
+    height:34px;
+    overflow: hidden;
+    text-shadow: 1px 1px 3px #000;    
+    margin-top:10px;    
+}
+
+#bottom-panel #inventory,
+#bottom-panel #inventory li { 
+    overflow: hidden; 
+    margin:0;
+    padding:0;
+}
+
+#bottom-panel #inventory{
+    padding-left:2px;
+}
+
+#bottom-panel #inventory li{ 
+    display:block;
+    float:left;
+    width:32px;
+    height:32px;
+    margin-right:3px;
+    border:solid 1px #333;
+    border-radius: 4px;
+}
+
+#bottom-panel #inventory li div{ 
+    width:32px;
+    height:32px;
+    background:url("../gfx/sprites/items.png") no-repeat;
+}
+
+#bottom-panel #inventory li:hover{ }
+
+#bottom-panel #inventory li.clickable:hover{
+    cursor:pointer;
+    border:solid 1px #AAA;
+}
+
+#bottom-panel #inventory li.active,
+#bottom-panel #inventory li.active:hover{
+    background: #333;
+    border:solid 1px #666;
+}
+
+/* ========================================================================== */
+/* === Dialogs ============================================================== */
+/* ========================================================================== */
+
+.dialog{
+    display:none;
+}
+
+#dialog-modal-actor .wrapper { padding:20px 0; overflow:hidden; width: auto; position: relative; }
+#dialog-modal-actor .portrait { 
+    display: block;
+    float:left;
+    margin-right: 20px;
+    width:48px;
+    height:48px;
+    background: url("../gfx/gui/bg_face.png") no-repeat;
+}
+#dialog-modal-actor .portrait .avatar{ 
+    display: block;
+    background-repeat: no-repeat;
+    width:32px;
+    height:32px;
+    margin-left:8px;
+    margin-top:8px;
+}
+
+#dialog-modal-actor .wrapper .talk_arrow{
+    width:11px;
+    height:16px;
+    background: url("../gfx/gui/talk_arrow.png") no-repeat;
+    position:absolute;
+    left:60px;
+    top:34px;   
+}
+
+#dialog-modal-actor .content { 
+    float: left;    
+    width:300px;
+    padding:12px;
+    border:solid 1px #271904;
+    border-radius:6px;
+    background:#E0E0D0;
+    color:#271904;
+    text-shadow:0 1px 0 #FFF;
+}
+
+#dialog-modal-gameover .content,
+#dialog-modal-message .content {
+    padding:12px;
+    border:solid 1px #271904;
+    border-radius:6px;
+    background:#E0E0D0;
+    color:#271904;
+    text-shadow:0 1px 0 #FFF;
+}
+
+#dialog-modal-message .content {
+    padding-left:72px;
+    background:url("../gfx/sprites/info.png") no-repeat 12px 12px #E0E0D0;
+}
+
+/* ========================================================================== */
+/* === Inventory Tooltip ==================================================== */
+/* ========================================================================== */
+
+#item-hint {
+    position:absolute;
+    display: none;
+}
+
+#item-hint .content{
+    background:#000;
+    border:solid 1px #999;
+    border-radius:6px;
+    padding:8px;
+}
+
+#item-hint .content .title{
+    font-weight: bold;
+    font-size:11pt;
+    color:yellow;
+}
+
+#item-hint .content .effects,
+#item-hint .content .effects li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+#item-hint .content .effects{
+    margin-top:6px;
+    font-size:10pt;
+}
+
+#item-hint .arrow{
+    width:14px;
+    height:8px;
+    background: url("../gfx/gui/hint_arrow.png") no-repeat;
+    margin-left:15px;
+    margin-top:-1px;
+}
+
+#src {
+	text-align: center;
+	padding-top:20px;
+}
+
+#src a {
+	color:#FFF;
+}
+
+#src a:hover {
+	text-decoration: none;
+}
+
+#src a.download {
+	color:#1abc9c;
+}

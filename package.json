@@ -4,6 +4,7 @@
   "description": "Hello World, my name is Marcus Boyd.\r I was born and raise in St. Louis Mo\r I have always had a passion for computers, so I thought it would be fun to make a career using computers.",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,12 @@
   },
   "homepage": "https://github.com/mboyd3813/SavvyPortfolio#readme",
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "eslint": "^4.19.1",
+    "parcel-bundler": "^1.9.7"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "navigo": "^7.1.2"
   }
 }
