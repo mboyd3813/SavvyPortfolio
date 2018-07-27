@@ -5,7 +5,7 @@ import Content from './Components/Content';
 import Footer from './Components/Footer';
 import * as State from './store';
 import axios from 'axios';
-import Navigo from 'Navigo';
+import navigo from 'navigo';
 import { capitalize } from 'lodash';
 
 var root = document.querySelector('#root');
